@@ -1,0 +1,33 @@
+#!/bin/sh
+#
+# /etc/rc.d/rc.local:  Local system initialization script.
+#
+# Put any local startup commands in here.  Also, if you have
+# anything that needs to be run at shutdown time you can
+# make an /etc/rc.d/rc.local_shutdown script and put those
+# commands in there.
+
+
+#if [ -x /etc/init.d/vpnclient_init ]; then
+#  echo "Starting cisco vpn client kernel modules: /etc/init.d/vpnclient_init"
+#  /etc/init.d/vpnclient_init start
+#fi
+
+#if [ -x /etc/rc.d/rc.cpufreq_ondemand ]; then
+#  echo "Starting cpu ondemand speed policy"
+#  /etc/rc.d/rc.cpufreq_ondemand start
+#fi
+
+if [ -x /etc/rc.d/rc.kvm-vm ]; then
+  echo "Starting modules for virtual guests"
+  /etc/rc.d/rc.kvm-vm start
+  /etc/rc.d/rc.bridge-vm start
+  /etc/rc.d/rc.tuntap-vm start
+fi
+
+if [ -x /usr/bin/netdate ]; then
+  echo "Updating local time."
+  NTPSERVERS="ntp.xs4all.nl ntp2.xs4all.nl ntp.dynamixs.net"
+  /usr/bin/netdate $NTPSERVERS
+fi
+

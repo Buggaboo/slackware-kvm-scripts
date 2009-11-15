@@ -1,0 +1,53 @@
+#!/bin/sh
+
+#set -e -x
+
+ETHDEVICE=eth0
+KVMGROUP=kvm
+BRIDGE=br0
+TAPRANGE=$(seq 0 3)
+TUNDEVICE=/dev/net/tun
+
+tun_start () {
+  for nr in $TAPRANGE; do
+    $(which tunctl) -u $(whoami) -t tap$nr
+    #$(which ip) link set tap$nr
+    $(which ifconfig) tap$nr 0.0.0.0 up promisc
+    sleep 0.25s
+    $(which brctl) addif $BRIDGE tap$nr
+    $(which ifconfig) tap$nr up
+  done
+  $(which chmod) g+rw $TUNDEVICE # allow group to use tun/tap
+  $(which ifconfig) $ETHDEVICE 0.0.0.0 promisc up
+  $(which brctl) addif $BRIDGE $ETHDEVICE # make taps usable by adding eth0
+  $(which sh) /etc/rc.d/rc.inet1 restart
+}
+
+tun_stop () {
+  for nr in $TAPRANGE; do
+    $(which brctl) delif $BRIDGE tap$nr
+    ifconfig tap$nr down
+    $(which tunctl) -d tap$nr
+  done
+  $(which brctl) delif $BRIDGE $ETHDEVICE
+}
+
+tun_restart () {
+  tun_stop
+  tun_start
+}
+
+case "$1" in                                                                    
+'start')                                                                        
+  tun_start
+  ;;
+'stop')                                                                         
+  tun_stop
+  ;;
+'restart')
+  tun_restart
+  ;;
+*)
+  echo "usage $0 start|stop|restart"
+esac
+

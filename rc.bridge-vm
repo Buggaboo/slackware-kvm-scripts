@@ -1,0 +1,41 @@
+#!/bin/sh
+
+#set -e -x
+
+IPADDR=192.168.1.111
+NETMASK=255.255.255.0
+BROADCAST=192.168.1.255
+BRIDGE=br0
+
+$(which modprobe) tun
+$(which modprobe) bridge
+
+br_start () {
+  $(which brctl) addbr $BRIDGE
+  $(which ifconfig) br0 $IPADDR netmask $NETMASK broadcast $BROADCAST
+}
+
+br_stop () {
+  $(which ifconfig) $BRIDGE down
+  $(which brctl) delbr $BRIDGE
+}
+
+br_restart () {
+  br_stop
+  br_start
+}
+
+case "$1" in                                                                    
+'start')                                                                        
+  br_start
+  ;;
+'stop')                                                                         
+  br_stop
+  ;;
+'restart')
+  br_restart
+  ;;
+*)
+  echo "usage $0 start|stop|restart"
+esac
+

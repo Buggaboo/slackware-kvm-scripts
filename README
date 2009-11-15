@@ -1,0 +1,2 @@
+* In rc.inet1, add "-R" to the initialization code of dhcpcd to stop it from clobbering resolv.conf which you need for setting up nameservers
+
