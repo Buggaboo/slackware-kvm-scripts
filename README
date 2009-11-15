@@ -1,6 +1,6 @@
 Install
 
-* groupadd network, * add 'user' to group 'network' in /etc/group:
+* groupadd network and kvm, * add 'user' to group 'network' and 'kvm' in /etc/group:
 * add udev rule (in ./etc/udev/rules.d/100-custom.rules)  to /etc/udev/rules.d
 * add this line to /etc/sudoers: %network ALL=(ALL) NOPASSWD: /sbin/ifconfig, /sbin/brctl, /usr/bin/tunctl, /usr/bin/qemu-system-x86_64
 * cp all the files from ./etc/{udev/rules.d,rc.d} to your own /etc, change where necessary, it's important to change the subnet range to your own
@@ -9,8 +9,9 @@ Install
 
 Dependencies
 
+* You must have the brctl and tunctl binaries, available on http://www.slackbuilds.org
 * You must have the kvm qemu client installed (type: 'which qemu-system-x86_64' in a shell)
-* You cpu must support the virtualization instructions to use kvm: check here: http://en.wikipedia.org/wiki/X86_virtualization
+* Your cpu must support the virtualization instructions to use kvm: http://en.wikipedia.org/wiki/X86_virtualization
 
 Options
 
