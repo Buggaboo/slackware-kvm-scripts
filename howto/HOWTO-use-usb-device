@@ -12,4 +12,4 @@ You'll see a list of usb devices connected to your host. Now add your usb device
 
 Your usb device will now show up in your guest virtual machine.
 
-source: http://www.linux-kvm.com/content/virt-manager-and-usb-device-support
+source: http://www.linux-kvm.com/content/virt-manager-and-usbdevice-support

@@ -3,11 +3,11 @@
 # 1st parameter: $1 -> image.qcow2
 # 2nd parameter: $2 -> tap0..n
 # 3rd parameter: $3 -> virtual ethernet device
-# 4th parameter: $4 -> additional parameters, enter like this "-usb -usb-device 1234:5678"
+# 4th parameter: $4 -> additional parameters, enter like this "-usb -usbdevice 1234:5678"
 
 # pass to 4th parameter
 # tip: -nographics
-# tip: -usb -usb-device PQRS:TUVW where P..W are 1..9
+# tip: -usb -usbdevice PQRS:TUVW where P..W are 1..9
 
 if [ -z "$1" ] ;then
   echo "Error: No vm image set to boot!"
