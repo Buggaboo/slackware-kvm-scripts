@@ -1,2 +1,15 @@
-* In rc.inet1, add "-R" to the initialization code of dhcpcd to stop it from clobbering resolv.conf which you need for setting up nameservers
+Install
+
+* cp all the files from ./etc to your own /etc
+* In rc.inet1, add "-R" to the initialization code of dhcpcd to stop it from clobbering resolv.conf which you need for setting up nameservers for your kvm vm sessions
+* use 'start-tap.sh image.qcow2 tap0' to start a kvm vm session
+
+Dependencies
+
+* You must have the kvm qemu client installed (type: 'which qemu-system-x86_64' in a shell)
+* You cpu must support the virtualization instructions to use kvm: check here: http://en.wikipedia.org/wiki/X86_virtualization
+
+Options
+
+* each file in ./etc have the parameters defined at the top of the file, you may modify these
 
