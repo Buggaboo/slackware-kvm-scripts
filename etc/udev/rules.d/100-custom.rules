@@ -1,0 +1,15 @@
+# Note: change 'user' to actual username!
+
+# KVM Virtualization permissions
+KERNEL=="kvm", GROUP="kvm", MODE="0660"
+
+# Tunneling for kvm
+KERNEL=="tun", GROUP="network", MODE="0660"
+
+# Scanner rules
+# Canon, Inc. CanoScan N1240U/LiDE 30
+SYSFS{idVendor}=="04a9", SYSFS{idProduct}=="220e", MODE="660", GROUP="scanner", OWNER="user"
+
+# Webcam Labtec 2200
+# modprobe gspca_main gspca_pac7311
+SUBSYSTEM=="video4linux", BUS=="usb", SYSFS{idVendor}=="093a", SYSFS{idProduct}=="2626", NAME="webcam", OWNER="user"
