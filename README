@@ -1,3 +1,5 @@
+16-11-2009
+
 Install
 
 * groupadd network and kvm, * add 'user' to group 'network' and 'kvm' in /etc/group:
