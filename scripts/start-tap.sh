@@ -41,6 +41,6 @@ if [ -z "$KVM" ]; then
   exit 1
 fi
 
-sudo $KVM -hda $1 -m 1024 smp 2 $4 \
+sudo $KVM -hda $1 -m 1024 -smp 2 $4 \
   -net nic,macaddr=$MACADDR,model=$MODEL \
   -net tap,ifname=$2,script=no
