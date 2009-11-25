@@ -1,0 +1,3 @@
+LOG 25-11-09
+* When passing the usb device (ocz nia device) to the vm guest use this:
+  start-tap.sh image.qcow2 tap0 e1000 "-usb -usbdevice host:1234:0000"
