@@ -9,7 +9,7 @@ BRIDGE=br0
 
 # don't change
 BRCTL=$(which brctl)
-IFCONFIG=
+IFCONFIG=$(which ifconfig)
 
 $(which modprobe) tun
 $(which modprobe) bridge
