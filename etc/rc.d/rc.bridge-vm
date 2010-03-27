@@ -7,17 +7,21 @@ NETMASK=255.255.255.0
 BROADCAST=192.168.1.255
 BRIDGE=br0
 
+# don't change
+BRCTL=$(which brctl)
+IFCONFIG=
+
 $(which modprobe) tun
 $(which modprobe) bridge
 
 br_start () {
-  $(which brctl) addbr $BRIDGE
-  $(which ifconfig) br0 $IPADDR netmask $NETMASK broadcast $BROADCAST
+  $BRCTL addbr $BRIDGE
+  $IFCONFIG br0 $IPADDR netmask $NETMASK broadcast $BROADCAST
 }
 
 br_stop () {
-  $(which ifconfig) $BRIDGE down
-  $(which brctl) delbr $BRIDGE
+  $IFCONFIG $BRIDGE down
+  $BRCTL delbr $BRIDGE
 }
 
 br_restart () {

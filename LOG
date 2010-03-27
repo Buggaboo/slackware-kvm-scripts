@@ -1,3 +1,7 @@
+LOG 27-03-10
+* Found out that e1000 is shitty for some AD protocols on a vmguest with
+  win2k3 server rc2
+
 LOG 25-11-09
 * When passing the usb device (ocz nia device) to the vm guest use this:
   start-tap.sh image.qcow2 tap0 e1000 "-usb -usbdevice host:1234:0000"

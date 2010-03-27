@@ -1,21 +1,21 @@
 #!/bin/sh
 
-kvm_start () { 
-  modprobe kvm
-  modprobe kvm-amd
-  modprobe virtio
-  modprobe virtio_balloon
-  modprobe virtio_pci
-  modprobe virtio_ring
+MODULES="kvm kvm-amd virtio virtio_balloon virtio_pci virtio_rng"
+
+# don't change
+MODPROBE=$(which modprobe)
+RMMOD=$(which rmmod)
+
+kvm_start () {
+  for m in $MODULES; do
+    $MODPROBE $m
+  done
 }
 
 kvm_stop () {
-  rmmod kvm-amd
-  rmmod kvm
-  rmmod virtio_balloon
-  rmmod virtio_pci
-  rmmod virtio_rng
-  rmmod virtio
+  for m in $MODULES; do
+    $RMMOD $m
+  done
 }
 
 case "$1" in
