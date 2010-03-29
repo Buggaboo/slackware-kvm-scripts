@@ -31,8 +31,8 @@ tun_start () {
 tun_stop () {
   for nr in $TAPRANGE; do
     $BRCTL delif $BRIDGE tap$nr
-    ifconfig tap$nr down
     $TUNCTL -d tap$nr
+    ifconfig tap$nr down
   done
   $BRCTL delif $BRIDGE $ETHDEVICE
 }
