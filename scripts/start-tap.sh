@@ -43,4 +43,8 @@ fi
 
 sudo $KVM -hda $1 -m 1024 -smp 2 $4 \
   -net nic,macaddr=$MACADDR,model=$MODEL \
-  -net tap,ifname=$2,script=no
+  -net tap,ifname=$2,script=no \
+  -usb \
+  -name "$1 $2" \
+  -no-quit \
+  
