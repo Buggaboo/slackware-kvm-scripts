@@ -47,4 +47,5 @@ sudo $KVM -hda $1 -m 1024 -smp 2 $4 \
   -usb \
   -name "`basename $1` $2" \
   -no-quit \
+  -monitor stdio
   
