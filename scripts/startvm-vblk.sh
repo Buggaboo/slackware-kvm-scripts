@@ -17,8 +17,9 @@ fi
 MODEL=$3
 if [ -z "$3" ]; then
   echo "Warning: No nic model set!"
-  echo "Warning: Default will be 'e1000'."
-  MODEL=e1000
+  echo "Warning: Default will be 'virtio'."
+  echo "Warning: Ascertain whether virtio-blk is loaded"
+  MODEL=virtio
 fi
 
 if [ -z "$2" ]; then
