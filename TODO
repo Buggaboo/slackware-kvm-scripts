@@ -1,11 +1,17 @@
 TODO 30-03-10
-- write seperate script that supports virtio: start-virtio.sh
++ write seperate script that supports virtio-blk: startvm-vblk.sh
 - experiment with virtio block device and net connection
-  - windows
+  - windows:
+    + win2k3 server rc2
+    - winxp
   - linux
+    - slackware
+    - ubuntu
 
 TODO 29-11-09
 - should test qemu-img snapshot... function
+  - savevm
+  - loadvm
 
 TODO 25-11-09
 + must test new work github public key
