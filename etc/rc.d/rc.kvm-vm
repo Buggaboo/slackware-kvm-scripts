@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MODULES="kvm kvm-amd virtio virtio_balloon virtio_pci virtio_rng"
+MODULES="kvm kvm-amd virtio virtio_blk virtio_balloon virtio_pci virtio_rng"
 
 # don't change
 MODPROBE=$(which modprobe)
