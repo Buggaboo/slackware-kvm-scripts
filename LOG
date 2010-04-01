@@ -1,3 +1,7 @@
+LOG 01-04-10
+* virtio ethernet is a success on win2k3 server rc2 edition, using NETKVM-20081229.iso, http://sourceforge.net/projects/kvm/files/kvm-driver-disc/20081229/NETKVM-20081229.iso/download
+* There are reports on it being shitty on heavy loads though, must stress test at job site using heavy VOIP traffic.
+
 LOG 27-03-10
 * Found out that e1000 is shitty for some AD protocols on a vmguest with
   win2k3 server rc2

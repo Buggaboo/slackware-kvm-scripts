@@ -1,8 +1,11 @@
 TODO 30-03-10
 + write seperate script that supports virtio-blk: startvm-vblk.sh
++ experiment with virtio ethernet
+  - 
 - experiment with virtio block device and net connection
   - windows:
-    + win2k3 server rc2
+    + win2k3 server rc2 => bsod, not sure if using good driver: http://www.linux-kvm.com/sites/default/files/viostor-xp-2010-02-06.iso
+      - try different driver: http://www.linux-kvm.com/content/redhat-54-windows-virtio-drivers-part-2-block-drivers
     - winxp
   - linux
     - slackware
