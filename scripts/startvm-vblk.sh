@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e -x
+#set -e -x
 
 # 1st parameter: $1 -> image.qcow2
 # 2nd parameter: $2 -> tap0..n
@@ -49,7 +49,7 @@ fi
 sudo $KVM -drive file=$1,if=virtio,boot=on -m 1024 -smp 2 $4 \
   -net nic,macaddr=$MACADDR,model=$MODEL \
   -net tap,ifname=$2,script=no \
-  -usb \
+  -usb -usbdevice tablet \
   -name "`basename $1` $2" \
   -no-quit \
   -monitor stdio
