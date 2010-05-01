@@ -1,3 +1,6 @@
+LOG 01-05-10
+* virtio ethernet seems to be making bad checksums on some packets, detected when joining samba4 vm to windows 2003 functional level active directory server; samba4 is fugged or virtio, not sure.
+
 LOG 01-04-10
 * virtio ethernet is a success on win2k3 server rc2 edition, using NETKVM-20081229.iso, http://sourceforge.net/projects/kvm/files/kvm-driver-disc/20081229/NETKVM-20081229.iso/download
 * There are reports on it being shitty on heavy loads though, must stress test at job site using heavy VOIP traffic.

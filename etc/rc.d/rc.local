@@ -27,7 +27,7 @@ fi
 
 if [ -x /usr/bin/netdate ]; then
   echo "Updating local time."
-  NTPSERVERS="ntp.xs4all.nl ntp2.xs4all.nl ntp.dynamixs.net"
+  NTPSERVERS="nl.pool.ntp.org 1.europe.pool.ntp.org 0.be.pool.ntp.org"
   /usr/bin/netdate $NTPSERVERS
 fi
 

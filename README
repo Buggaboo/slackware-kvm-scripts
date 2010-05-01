@@ -3,11 +3,15 @@
 Install
 
 * groupadd network and kvm, * add 'user' to group 'network' and 'kvm' in /etc/group:
+  useradd user
+  groupadd network kvm
 * add udev rule (in ./etc/udev/rules.d/100-custom.rules)  to /etc/udev/rules.d
+  cat ./etc/udev/rules.d/100-custom.rules >> /etc/udev/rules.d/100-custom.rules
 * add this line to /etc/sudoers: %network ALL=(ALL) NOPASSWD: /sbin/ifconfig, /sbin/brctl, /usr/bin/tunctl, /usr/bin/qemu-system-x86_64
+  cat "%network ALL=(ALL) NOPASSWD: /sbin/ifconfig, /sbin/brctl, /usr/bin/tunctl, /usr/bin/qemu-system-x86_64" >> /etc/sudoers
 * cp all the files from ./etc/{udev/rules.d,rc.d} to your own /etc, change where necessary, it's important to change the subnet range to your own
 * In rc.inet1, add "-R" to the initialization code of dhcpcd to stop it from clobbering resolv.conf which you need for setting up nameservers for your kvm vm sessions
-* use 'start-tap.sh image.qcow2 tap0' to start a kvm vm session
+* use 'startvm.sh image.qcow2 tap0' to start a kvm vm session
 
 Dependencies
 

@@ -2,10 +2,10 @@
 
 ## Shutdown stuff, you started in rc.local
 
-if [ -x /etc/init.d/vpnclient_init ]; then
-  echo "Shutting down cisco vpn client kernel modules: /etc/init.d/vpnclient_init"
-  /etc/init.d/vpnclient_init $1
-fi
+#if [ -x /etc/init.d/vpnclient_init ]; then
+#  echo "Shutting down cisco vpn client kernel modules: /etc/init.d/vpnclient_init"
+#  /etc/init.d/vpnclient_init $1
+#fi
 
 ## Shutdown stuff, you started in rc.local
 if [ -x /etc/rc.d/rc.kvm-vm ]; then
