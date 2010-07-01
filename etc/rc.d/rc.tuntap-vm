@@ -25,7 +25,7 @@ tun_start () {
   $(which chmod) g+rw $TUNDEVICE # allow group to use tun/tap
   $IFCONFIG $ETHDEVICE 0.0.0.0 promisc up
   $BRCTL addif $BRIDGE $ETHDEVICE # make taps usable by adding eth0
-  $IFCONFIG $ETHDEVICE 0.0.0.0 promisc up # just in case  
+  /etc/rc.inet1 restart
 }
 
 tun_stop () {
